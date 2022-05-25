@@ -21,19 +21,19 @@ ubuntu
 // sudo apt install cmake 는 카카오 저장소에서 없어져서 공식사이트에서 다운받아줘야한다
 
 # 필요한 CMAKE설치를 위한 c컴파일러
-sudo add-apt-repository ppa:jonathonf/gcc-7.1
-sudo apt-get update
-sudo apt-get install gcc-7 g++-7
-g++ --version
+sudo add-apt-repository ppa:jonathonf/gcc-7.1   
+sudo apt-get update   
+sudo apt-get install gcc-7 g++-7   
+g++ --version   
 
 # 컴파일러가 우선 실행하게 하기위해
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7   
 
 
 # CMAKE 설치
-wget https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2.tar.gz 
+wget https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2.tar.gz   
 tar -xvf cmake-3.18.2.tar.gz 
-cd cmake-3.18.2 
+cd cmake-3.18.2   
 ./bootstrap 
 make
 cmake ..
