@@ -47,17 +47,17 @@ git clone https://github.com/YDLIDAR/YDLidar-SDK.git
 
 sudo chown -R <계정명> <작업폴더>
 
-cd YDLidar-SDK/build
-mkdir build
-build 폴더는 만들어줘야함
+cd YDLidar-SDK/build   
+mkdir build   
+build 폴더는 만들어줘야함   
 
-cmake ..
-make
+cmake ..   
+make   
 
 
-cd YDLidar-SDK
-pip install .
+cd YDLidar-SDK   
+pip install .   
 
 # Another method
-python3 setup.py build
+python3 setup.py build   
 python3 setup.py install
