@@ -27,7 +27,9 @@ wsl --set-default-version 1
 sudo apt install git
 sudo apt install cmake pkg-config
 
+sudo apt-get install swig
 sudo apt-get install python swig
+sudo apt install python-pip
 sudo apt-get install python-pip
 
 # Cmake 의존 라이브러리 설치 (make , gcc, gcc-c++ openssl, openssl-devel)
