@@ -2,62 +2,61 @@
 
 # 파트라슈 프로젝트 라이더 센서
 
-# Driver 다운로드
-https://cn.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
+# WSL 설정
+windows 기능 켜기/끄기   
+Linux용 Windows 하위 시스템 체크
 
-# 라이더 툴 다운
-https://www.ydlidar.com/service_support/download.html
-
-# wsl 우분투
-https://webdir.tistory.com/541
-오류뜰때
+WSL 패키지 설치
 https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
-초기비밀번호 
-ubuntu
-ubuntu
+```bash
+# CMD 관리자권한 실행 후 재부팅
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart   
+```
+
+```bash
+# 재부팅후 wsl 초기버전 1 설정
+wsl --set-default-version 1   
+```
+# Ubuntu 18.04.5 LTS 윈도우스토어에서 설치
+윈도우 스토어에서 Ubuntu 18.04.5 LTS 설치
+
+아이디 비밀번호 설정후
+
+```bash
+sudo apt install git
+sudo apt install cmake pkg-config
+
+sudo apt-get install python swig
+sudo apt-get install python-pip
+
+# Cmake 의존 라이브러리 설치 (make , gcc, gcc-c++ openssl, openssl-devel)
+sudo apt-get install gcc make
+sudo apt-get update
+sudo apt-get install gcc 
+sudo apt-get install g++
+sudo apt-get install libssl-dev openssl
+sudo apt-get install libssl-dev
 
 
-// sudo apt install cmake 는 카카오 저장소에서 없어져서 공식사이트에서 다운받아줘야한다
+# Cmake 설치
+sudo wget https://cmake.org/files/v3.15/cmake-3.15.2.tar.gz
+sudo tar xvfz cmake-3.15.2.tar.gz
+cd cmake-3.15.2
+sudo ./bootstrap
+sudo make
+sudo make install
 
-# 필요한 CMAKE설치를 위한 c컴파일러
-sudo add-apt-repository ppa:jonathonf/gcc-7.1   
-sudo apt-get update   
-sudo apt-get install gcc-7 g++-7   
-g++ --version   
+# YDLidar-SDK설치
+sudo git clone https://github.com/YDLIDAR/YDLidar-SDK.git
+sudo mkdir YDLidar-SDK/build
+cd YDLidar-SDK/build
+sudo cmake ..
+sudo make
+sudo make install
 
-# 컴파일러가 우선 실행하게 하기위해
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7   
-
-
-# CMAKE 설치
-wget https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2.tar.gz   
-tar -xvf cmake-3.18.2.tar.gz 
-cd cmake-3.18.2   
-./bootstrap 
-make
-cmake ..
-cmake --version
-
-#cmake 설치
-sudo apt install cmake
-
-원하는 디텍토리에 git 클론
-git clone https://github.com/YDLIDAR/YDLidar-SDK.git
-
-sudo chown -R <계정명> <작업폴더>
-
-cd YDLidar-SDK/build   
-mkdir build   
-build 폴더는 만들어줘야함   
-
-cmake ..   
-make   
-
-
-cd YDLidar-SDK   
-pip install .   
-
-# Another method
-python3 setup.py build   
-python3 setup.py install
+cd YDLidar-SDK
+sudo pip install .
+sudo python setup.py build
+sudo python setup.py install
+```
