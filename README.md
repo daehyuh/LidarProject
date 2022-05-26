@@ -11,12 +11,12 @@ https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
 ```bash
 # CMD 관리자권한 실행 후 재부팅
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart   
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
 ```bash
 # 재부팅후 wsl 초기버전 1 설정
-wsl --set-default-version 1   
+wsl --set-default-version 1
 ```
 # Ubuntu 18.04.5 LTS 윈도우스토어에서 설치
 윈도우 스토어에서 Ubuntu 18.04.5 LTS 설치
