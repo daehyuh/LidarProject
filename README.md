@@ -1,5 +1,11 @@
 # LidarProject
 
+Driver 다운로드
+https://cn.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
+
+라이더 툴 다운
+https://www.ydlidar.com/service_support/download.html
+
 # 파트라슈 프로젝트 라이더 센서
 
 # WSL 설정
