@@ -32,7 +32,7 @@ sudo apt-get install python-pip
 
 # Cmake 의존 라이브러리 설치 (make , gcc, gcc-c++ openssl, openssl-devel)
 sudo apt-get update
-sudo apt-get install gcc make
+sudo apt-get install make
 sudo apt-get install gcc 
 sudo apt-get install g++
 sudo apt-get install libssl-dev openssl
