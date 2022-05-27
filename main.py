@@ -7,9 +7,7 @@ import json
 from datetime import datetime
 import threading
 
-
 save_path = 'saved_imgs'
-
 
 ydlidar.os_init();
 ports = ydlidar.lidarPortList();
@@ -30,7 +28,6 @@ laser.setlidaropt(ydlidar.LidarPropMaxRange, 16.0);
 laser.setlidaropt(ydlidar.LidarPropMinRange, 0.28);
 laser.setlidaropt(ydlidar.LidarPropIntenstiy, True);
 
-
 file_path = "./sample.json"
 data = {}
 data['data'] = []
@@ -42,12 +39,13 @@ def file_make():
     if not os.path.exists(root_path):
         os.makedirs(root_path)
     data['data'].append({
-"angle": angle,
-"range": range,
-"intensity": intensity
-})
+        "angle": angle,
+        "range": range,
+        "intensity": intensity
+    })
     json_string = json.dumps(json_object)
     print(json_string)
+
 
 def getdegree(angle):
     degree = math.degrees(angle)
@@ -56,14 +54,15 @@ def getdegree(angle):
     degree = int(degree)
     return degree
 
-def playLidar() :
+
+def playLidar():
     ret = laser.initialize()
-    if ret :
+    if ret:
         ret = laser.turnOn()
         scan = ydlidar.LaserScan()
         while ret and ydlidar.os_isOk():
             r = laser.doProcessSimple(scan)
-            if r :
+            if r:
                 ang = []
                 ran = []
                 intensity = []
@@ -71,18 +70,18 @@ def playLidar() :
                 for point in scan.points:
                     degree = getdegree(point.angle)
                     if degree != last_degree:
-                        print(degree ,last_degree)
+                        print(degree, last_degree)
                         ang.append(degree)
                         ran.append(point.range)
                         intensity.append(point.intensity)
                     last_degree = degree
                     print("Angle: ", int(degree), " Range: ", str(point.range), " Intensity: ", str(point.intensity))
-                    
-            else :
+
+            else:
                 print('Failed to get Lidar Data')
 
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     # thread = threading.Thread(target=playLidar, args=())
     # thread.start()
     # thread.join()
