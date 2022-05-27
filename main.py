@@ -80,7 +80,7 @@ def playLidar() :
                     
             else :
                 print('Failed to get Lidar Data')
-    return ang, ran, intensity
+
 
 if __name__ == "__main__" :
     # thread = threading.Thread(target=playLidar, args=())
