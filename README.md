@@ -73,4 +73,9 @@ sudo apt-get install python3-setuptools
 sudo pip install .
 sudo python3 setup.py build
 sudo python3 setup.py install
+
+# 프로젝트 클론
+sudo git clone https://github.com/daehyuh318/LidarProject.git   
+cd LidarProject
+python3 main.py 
 ```
