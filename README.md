@@ -35,7 +35,7 @@ wsl --set-default-version 1
 
 ```bash
 sudo apt-get update
-sudo apt-get git
+sudo apt install git
 sudo apt install cmake pkg-config
 sudo apt-get install swig
 sudo apt-get install python swig
