@@ -1,7 +1,7 @@
 # LidarProject
 
 > # 파트라슈 프로젝트 YDLidar 라이더 데이터수집 센서 개발
-> > ### 담당자 강대현
+> > ### 담당자 강대현, 황가온
 
 
 Driver 다운로드
@@ -69,7 +69,7 @@ cd YDLidar-SDK
 apt install python3
 apt install python
 apt install python-minimal
-sudo pip3 install .
+sudo pip install .
 sudo python3 setup.py build
 sudo python3 setup.py install
 ```
