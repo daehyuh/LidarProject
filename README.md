@@ -66,7 +66,7 @@ sudo make
 sudo make install
 
 cd YDLidar-SDK
-sudo pip install .
+sudo pip3 install .
 sudo python3 setup.py build
 sudo python3 setup.py install
 ```
