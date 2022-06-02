@@ -67,9 +67,9 @@ sudo make
 sudo make install
 
 cd YDLidar-SDK
-apt install python3
-apt install python
-apt install python-minimal
+sudo apt install python3
+sudo apt install python
+sudo apt install python-minimal
 sudo apt-get install python3-setuptools
 sudo pip install .
 sudo python3 setup.py build
