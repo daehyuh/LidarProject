@@ -11,7 +11,7 @@ save_path = 'saved_imgs'
 
 ydlidar.os_init();
 ports = ydlidar.lidarPortList();
-port = "/dev/ttyS3";
+port = "/dev/ttyS4";
 for key, value in ports.items():
     port = value;
 laser = ydlidar.CYdLidar();
