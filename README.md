@@ -75,6 +75,12 @@ sudo pip install .
 sudo python3 setup.py build
 sudo python3 setup.py install
 
+# tty확인
+dmesg | grep tty
+stty -F /dev/ttyS0
+stty 115200 < /dev/ttyS0
+
+
 # 프로젝트 클론
 sudo git clone https://github.com/daehyuh318/LidarProject.git   
 cd LidarProject
