@@ -33,11 +33,6 @@ laser.setlidaropt(ydlidar.LidarPropMinRange, 0.28);
 laser.setlidaropt(ydlidar.LidarPropIntenstiy, True);
 
 
-
-
-
-
-
 def getdegree(angle):
     degree = math.degrees(angle)
     if degree < 0:
@@ -46,10 +41,7 @@ def getdegree(angle):
     return degree
 
 
-
-
 def playLidar():
-    ang = []
     ret = laser.initialize()
     if ret:
         ret = laser.turnOn()
@@ -57,22 +49,22 @@ def playLidar():
         while ret and ydlidar.os_isOk():
             r = laser.doProcessSimple(scan)
             if r:
-	        ang = []
-		last_degree = 0
-		for point in scan.points:
-		    degree = getdegree(point.angle)
-		    if degree != last_degree:
-		        print(degree, last_degree)
-		        ang.append([degree, point.range, point.intensity])
-		    last_degree = degree     
-                    #print("Angle: ", int(degree), " Range: ", str(point.range), " Intensity: ", str(point.intensity)) 
-            else:
-                print('Failed to get Lidar Data')
-        print(ang)
-	    f = open(value[0],'w',newline='') 
-	    wr = csv.writer(f)
-	    wr.writerows(value[1])
-	    f.close()      
+                ang = []
+                last_degree = 0
+                for point in scan.points:
+                    degree = getdegree(point.angle)
+                    if degree != last_degree:
+                        print(degree, last_degree)
+                        ang.append([degree, point.range, point.intensity])
+                        last_degree = degree
+                        # print("Angle: ", int(degree), " Range: ", str(point.range), " Intensity: ", str(point.intensity))
+                    else:
+                        print('Failed to get Lidar Data')
+                print(ang)
+                with open('data.csv','w', newline='') as f:
+                    wr = csv.writer(f)
+                    wr.writerows(ang)
+                    f.close()
 
 
 if __name__ == "__main__":
